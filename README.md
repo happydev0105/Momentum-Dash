@@ -40,8 +40,8 @@ A personalized vision board Chrome extension inspired by Momentum Dash. This ext
 
 1. Clone the repository:
     ```sh
-    git clone https://github.com/yourusername/vision-board-chrome-extension.git
-    cd vision-board-chrome-extension
+    git clone https://github.com/happydev0105/Momentum-Dash.git
+    cd Momentum-Dash
     ```
 
 2. Install dependencies (if using a framework like React or Vue):
@@ -64,23 +64,6 @@ A personalized vision board Chrome extension inspired by Momentum Dash. This ext
 - Once installed, open a new tab to see the vision board Chrome extension in action.
 - Use the interface to add, remove, and rearrange vision items.
 - Enjoy dynamic greetings based on the time of day.
-
-## Contributing
-
-1. Fork the repository.
-2. Create a new branch:
-    ```sh
-    git checkout -b feature/your-feature-name
-    ```
-3. Make your changes and commit them:
-    ```sh
-    git commit -m "Add some feature"
-    ```
-4. Push to the branch:
-    ```sh
-    git push origin feature/your-feature-name
-    ```
-5. Open a pull request.
 
 ## License
 
