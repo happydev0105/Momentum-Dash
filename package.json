@@ -1,0 +1,16 @@
+{
+  "name": "momentum-dash",
+  "version": "1.0.0",
+  "description": "A personalized vision board Chrome extension inspired by Momentum Dash. This extension provides a clean, modern, and responsive design with dynamic greetings and a customizable vision board to help users stay inspired and focused.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  }
+}
