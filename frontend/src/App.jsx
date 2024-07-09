@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './styles.css';
 import axios from 'axios';
+import VisionBoard from './VisionBoard';
 
 const App = () => {
   const [greeting, setGreeting] = useState('');
@@ -29,17 +30,11 @@ const App = () => {
   return (
     <div>
       <div className="greeting">{greeting}</div>
-      <div className="vision-board">
-        {visionItems.map((item) => (
-          <div className="vision-item" key={item._id} draggable>
-            {item.content}
-            <button onClick={() => removeVisionItem(item._id)}>Remove</button>
-          </div>
-        ))}
-      </div>
-      <button onClick={() => addVisionItem(prompt('Enter vision item:'))}>
-        Add Vision Item
-      </button>
+      <VisionBoard
+        visionItems={visionItems}
+        addVisionItem={addVisionItem}
+        removeVisionItem={removeVisionItem}
+      />
     </div>
   );
 };
