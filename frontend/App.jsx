@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './styles.css';
+import axios from 'axios';
 
 const App = () => {
   const [greeting, setGreeting] = useState('');
@@ -10,24 +11,29 @@ const App = () => {
     if (hour < 12) setGreeting('Good Morning');
     else if (hour < 18) setGreeting('Good Afternoon');
     else setGreeting('Good Evening');
+
+    axios.get('http://localhost:3000/vision-items')
+      .then(response => setVisionItems(response.data));
   }, []);
 
-  const addVisionItem = (item) => {
-    setVisionItems([...visionItems, item]);
+  const addVisionItem = async (item) => {
+    const response = await axios.post('http://localhost:3000/vision-items', { content: item });
+    setVisionItems([...visionItems, response.data]);
   };
 
-  const removeVisionItem = (index) => {
-    setVisionItems(visionItems.filter((_, i) => i !== index));
+  const removeVisionItem = async (id) => {
+    await axios.delete(`http://localhost:3000/vision-items/${id}`);
+    setVisionItems(visionItems.filter(item => item._id !== id));
   };
 
   return (
     <div>
       <div className="greeting">{greeting}</div>
       <div className="vision-board">
-        {visionItems.map((item, index) => (
-          <div className="vision-item" key={index} draggable>
-            {item}
-            <button onClick={() => removeVisionItem(index)}>Remove</button>
+        {visionItems.map((item) => (
+          <div className="vision-item" key={item._id} draggable>
+            {item.content}
+            <button onClick={() => removeVisionItem(item._id)}>Remove</button>
           </div>
         ))}
       </div>
